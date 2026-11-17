@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="cabecalhoJogo">
+        <div>
+            <span id="dinheiro">Dinheiro:0</span>
+            <span id="taxaPassiva">+ 0 / seg</span>
+        </div>
+        <h1>War of the class</h1>
+        <p id="nomeJogador" onclick="abrirFormPerfil()">Nome:</p>
+        <div id="perfilFoto" onclick="abrirFormPerfil()"></div>
+    </header>
+
+    <div id="menuLateral">
+        <div class="UIBotoesLateral">
+            <h1 id="menuLateralTitulo">Classe</h1>
+            <div class="UIBotaoLateralSecundario">
+                <div class="UIBotaoLateral ativo" id="Esquerdo" onclick="escolherMenuLateral('Esquerdo')">Classes</div>
+                <div class="UIBotaoLateral" id="Direito" onclick="escolherMenuLateral('Direito')">Clicker</div>
+            </div>
+            <div id="menuLateralClasses"></div>
+            <div id="menuLateralClicker"></div>
+        </div>
+    </div>
+
+    <div id="combateUI" onclick="cliker()">
+        <div id="vidaDaBase">
+            <div id="vidaDaBaseBarra">
+                1
+            </div>
+        </div>
+        <div id="chao">
+        </div>
+    </div>
+    <p id="multiplicadorDano">1.0</p>
+
+    <div id="gameOver">
+        <h2>Game Over</h2>
+        <p>Você perdeu!</p>
+    </div>
+
+    <div id="PainelInfEst">
+        <div>
+            <p id="totalclicks">total clicks: 0</p>
+            <p id="tempoJogador">tempo de jogo: 0</p>
+            <p id="totalRecAcumulados">total de recursos acumulados: 0</p>
+            <p id="inimigMort">inimigos mortos: 0</p>
+            <p id="upgradeFeitos">personagens melhorados: 0</p>
+            <p id="totalGast">total de dinheiro gastos: 0</p>
+        </div>
+    </div>
+    <div id="fundoForm" onclick="fecharFormPerfil(event)">
+        <form id="formPerfil" onsubmit="guardarPerfil(event)">
+            <h2>Editar Perfil</h2>
+
+            <label>Nome:
+                <input type="text" id="inputNome" value="Jogador">
+            </label>
+
+            <p>Cor do perfil:</p>
+            <div id="listaCores">
+                <label><input type="radio" name="cor" value="#0c00f5" checked> <span
+                        style="background:#0c00f5"></span></label>
+                <label><input type="radio" name="cor" value="#f50000"> <span style="background:#f50000"></span></label>
+                <label><input type="radio" name="cor" value="#00f58f"> <span style="background:#00f58f"></span></label>
+                <label><input type="radio" name="cor" value="#f5f500"> <span style="background:#f5f500"></span></label>
+                <label><input type="radio" name="cor" value="#f500f5"> <span style="background:#f500f5"></span></label>
+            </div>
+            <button id="botaoReset" onclick="resetJogo()">Novo Jogo</button>    
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="fecharFormPerfil()">Cancelar</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -5,6 +5,7 @@
     --cor-letras-menu-lateral: #153436;
     --cor-hover: hsl(119, 47%, 30%);
     --cor-active: hsl(119, 47%, 25%);
+    --perfil: #0c00f5;
 }
 
 * {
@@ -14,6 +15,7 @@
 
 body {
     overflow: hidden;
+    display: flex;
 }
 
 /** Menu vertical **/
@@ -29,6 +31,7 @@ body {
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: #888 transparent;
+    z-index: 1;
 }
 
 #menuLateralTitulo {
@@ -121,4 +124,296 @@ body {
 
 .ativo {
     background-color: var(--cor-hover);
+}
+
+/** css - combate **/
+#combateUI {
+    background-color: rgb(92, 195, 255);
+    width: 90vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.Aliados {
+    position: absolute;
+    border: 2px solid #00ff00;
+    border-radius: 100%;
+    background-color: red;
+    width: 5vh;
+    height: 5vh;
+    translate: 25% 79vh;
+    z-index: 1;
+}
+
+.Inimigos {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 100%;
+    background-color: red;
+    width: 5vh;
+    height: 5vh;
+    translate: 25% 79vh;
+    z-index: 1;
+}
+
+#chao {
+    background: url(chao.png);
+    background-repeat: repeat-x;
+    background-size: 10% 100%;
+    image-rendering: pixelated;
+    height: 10vh;
+    width: 100vw;
+    translate: -10% 90vh;
+    animation: andarChao 4s linear infinite;
+}
+
+#multiplicadorDano {
+    position: absolute;
+    left: 50%;
+    font-size: 64px;
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 150px;
+    text-align: center;
+    rotate: 10deg;
+    opacity: 0;
+}
+
+@keyframes andarChao {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -100% 0;
+    }
+}
+
+#multiplicadorDano {
+    position: absolute;
+    left: 50%;
+    font-size: 64px;
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 150px;
+    text-align: center;
+    rotate: 10deg;
+    opacity: 0;
+}
+
+.ataque {
+    background: url("Ataque.png");
+    width: 32px;
+    height: 64px;
+    background-repeat: no-repeat;
+    position: absolute;
+    translate: 25% 79vh;
+}
+
+.BarraVida {
+    position: absolute;
+    border: 3px solid black;
+    border-radius: 25%;
+    top: -32px;
+    width: 32px;
+    height: 16px;
+}
+
+.BarraVidaCor {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, #f9f9f900 50%, #ff0000 50%);
+    background-size: 200%;
+    background-position-x: 0%;
+}
+
+/** vidaDaBase **/
+#vidaDaBase {
+    position: absolute;
+    translate: 1vw 10%;
+    background-color: #030303;
+    width: 5vw;
+    height: 3vh;
+}
+
+#vidaDaBaseBarra {
+    position: absolute;
+    translate: 0.3vw 25%;
+    width: 4.5vw;
+    height: 2vh;
+    background: linear-gradient(to left, #f9f9f900 50%, #ff0000 50%);
+    background-size: 200%;
+    background-position-x: 0%;
+    text-align: center;
+    color: white;
+}
+
+#gameOver {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ff0000;
+    z-index: 4;
+    text-align: center;
+    display: none;
+}
+
+#gameOver > h2{font-size: 400%;}
+#gameOver > p{font-size: 300%;}
+
+#gameOver > h2, #gameOver > p {
+    translate: 0 50vh;
+}
+
+#PainelInfEst {
+    position: absolute;
+    background-color: #D9442C;
+    border: 4px solid #3B1A0F;
+    border-radius: 10%;
+    width: 30vw;
+    height: 22vh;
+    z-index: 3;
+    text-align: center;
+    display: block;
+    translate: 68vw 15vh;
+    text-align: left;
+}
+
+#PainelInfEst > div{
+    padding: 5%;
+    color: #2A1219;
+}
+
+
+#cabecalhoJogo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    max-width: 800px;
+    background-color: #6b3e1e; 
+    border: 3px solid #000;         
+    border-top: none;                
+    border-radius: 0 0 20px 20px;   
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 3;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+#cabecalhoJogo h1 {
+    font-size: 300%;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+#dinheiro {
+    font-size: 100%;
+    font-weight: bold;
+    color: #ffe066;
+}
+
+#nomeJogador {
+    font-size: 100%;
+    margin: 0;
+}
+
+#perfilFoto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    background-color: var(--perfil);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+/* Fundo escuro que cobre o ecrã quando o form abre */
+#fundoForm {
+    display: none;                     /* escondido por defeito */
+    position: fixed;
+    inset: 0;                          /* cobre todo o ecrã */
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+#fundoForm.aberto {
+    display: flex;
+}
+
+#formPerfil {
+    background: #6b3e1e;            
+    border: 3px solid #000;
+    border-radius: 15px;
+    padding: 20px 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 260px;
+    text-align: center;
+}
+
+#formPerfil h2 {
+    margin: 0 0 8px;
+}
+
+#formPerfil input[type="text"] {
+    padding: 6px;
+    border-radius: 6px;
+    border: 2px solid #000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#listaCores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#listaCores label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#listaCores input[type="radio"] {
+    display: none;
+}
+
+#listaCores span {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    display: inline-block;
+}
+
+#listaCores input[type="radio"]:checked + span {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+#formPerfil button {
+    padding: 8px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    background: #a0662e;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#formPerfil button:hover {
+    background: #c47a37;
 }
